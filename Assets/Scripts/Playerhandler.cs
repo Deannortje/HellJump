@@ -20,6 +20,7 @@ public class Playerhandler : MonoBehaviour
     public float airDrag = 0.2f;
     public float iceDrag = 0.3f;
     public float WaterJumpModifier;
+    public float JumpReleaseModifier = 0.5f;
 
     public KeyCode jumpID;
 
@@ -53,6 +54,7 @@ public class Playerhandler : MonoBehaviour
         CheckIfSubmerged();
         jump();
         Move();
+        StopJump();
         if(Input.GetKey(KeyCode.Q))
         { 
             if(!isGrounded) Debug.Log("Airborn");
@@ -163,6 +165,14 @@ public class Playerhandler : MonoBehaviour
             if(isUnderwater) WaterModifier = WaterJumpModifier;
             else             WaterModifier = 1;
             body.velocity = new Vector2(body.velocity.x, JumpHeight*WaterModifier);
+        }
+    }
+
+    void StopJump()
+    {
+        if(Input.GetKeyUp(jumpID))
+        {
+            body.velocity = new Vector2(body.velocity.x, body.velocity.y*JumpReleaseModifier);
         }
     }
 }

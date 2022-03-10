@@ -7140,11 +7140,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Following: {fileID: 1617836424}
-  maxDeltaY: 10
-  minDeltaY: 1
-  maxDeltaX: 10
-  minDeltaX: 1
-  timeToLerpInMS: 1000
+  offset: {x: 0, y: 0, z: -10}
+  LerpVal: 0.15
+  MaxCamDistance: 10
+  MinCamDistance: 0
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
