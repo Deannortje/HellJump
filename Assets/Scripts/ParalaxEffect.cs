@@ -32,5 +32,9 @@ public class ParalaxEffect : MonoBehaviour
         {
             this.transform.position = new Vector3(Cam.position.x,Cam.position.y,0);
         }
+        if (Mathf.Abs(Cam.position.y - this.transform.position.y) > textureSizeX)
+        {
+            this.transform.position = new Vector3(Cam.position.x,Cam.position.y,0);
+        }
     }
 }
